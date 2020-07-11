@@ -17,8 +17,10 @@ Thank you for taking the time to read this write-up on the Python introductory c
       - [Lists](#lists)
     - [Functions](#functions)
       - [Lambdas](#lambdas)
-
-        
+    - [Loops and `if` Statements](#loops-and-if-statements)
+      - [`while` Loops](#while-loops)
+      - [`for` Loops](#for-loops)
+      - [`if` / `else`/ `elif` Statements](#if--else-elif-statements)
 
 ## Setting up Python
 
@@ -32,11 +34,11 @@ For beginners we recommend using Microsoft's open-source [VSCode editor](https:/
 
 Some extensions we recommend for Python development with VSCode include:
 
- - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) by Microsoft: Enables Python language support in VSCode and test tools.
- - [Kite](https://marketplace.visualstudio.com/items?itemName=kiteco.kite): A coding assistant that aids with autocompletion and shows docstrings.
- - [Wolf](https://marketplace.visualstudio.com/items?itemName=traBpUkciP.wolf): Live Python scratchpad
- - [Sort Lines](https://tyriar.gallerycdn.vsassets.io/extensions/tyriar/sort-lines/1.9.0/1573941482699/Microsoft.VisualStudio.Services.Icons.Small): Automatically sort lines of long dictionary keys.
- - [Guides](https://marketplace.visualstudio.com/items?itemName=spywhere.guides): Adds extra indentation guides.
+- [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) by Microsoft: Enables Python language support in VSCode and test tools.
+- [Kite](https://marketplace.visualstudio.com/items?itemName=kiteco.kite): A coding assistant that aids with autocompletion and shows docstrings.
+- [Wolf](https://marketplace.visualstudio.com/items?itemName=traBpUkciP.wolf): Live Python scratchpad
+- [Sort Lines](https://tyriar.gallerycdn.vsassets.io/extensions/tyriar/sort-lines/1.9.0/1573941482699/Microsoft.VisualStudio.Services.Icons.Small): Automatically sort lines of long dictionary keys.
+- [Guides](https://marketplace.visualstudio.com/items?itemName=spywhere.guides): Adds extra indentation guides.
 
 ## Downloading Packages
 
@@ -130,7 +132,7 @@ Accessing values in dictionaries happens a little differently, since they're all
 
 #### Lists
 
-Lists do exactly what the name suggests. They let you store multiple variables in them, and access them via *indices* later on. Indices begin from 0 - being the first element, and progress upwards. Let's take a look at an example:
+Lists do exactly what the name suggests. They let you store multiple variables in them, and access them via _indices_ later on. Indices begin from 0 - being the first element, and progress upwards. Let's take a look at an example:
 
 ```python
 my_list = [1, 1.5, "test", True]
@@ -190,62 +192,71 @@ print(multiply(5, 2))
 
 Lambdas automatically return the value they're assigned to, so the `return` keyword can be omitted.
 
-### Loops and If statements
+### Loops and `if` Statements
 
-#### While loops
+#### `while` Loops
+
 While loops work by running a certain piece of code while a given statement is true. So for example if you wanted to print all numbers up to 10 with a while statement, you would do this:
+
 ```py
 i = 0
 while i<10:
 	print(i)
 	i += 1 # increment the counter
 ```
+
 A trace table for this can be seen here:
+
 ```markdown
-| Iteration | I  | While | Output    |
-|-----------|----|-------|-----------|
-| 1         | 0  | True  | 0         |
-| 2         | 1  | True  | 1         |
-| 3         | 2  | True  | 2         |
-| 4         | 3  | True  | 3         |
-| 5         | 4  | True  | 4         |
-| 6         | 5  | True  | 5         |
-| 7         | 6  | True  | 6         |
-| 8         | 7  | True  | 7         |
-| 9         | 8  | True  | 8         |
-| 10        | 9  | True  | 9         |
-| 11        | 10 | False | No output |
+| Iteration | I   | While | Output    |
+| --------- | --- | ----- | --------- |
+| 1         | 0   | True  | 0         |
+| 2         | 1   | True  | 1         |
+| 3         | 2   | True  | 2         |
+| 4         | 3   | True  | 3         |
+| 5         | 4   | True  | 4         |
+| 6         | 5   | True  | 5         |
+| 7         | 6   | True  | 6         |
+| 8         | 7   | True  | 7         |
+| 9         | 8   | True  | 8         |
+| 10        | 9   | True  | 9         |
+| 11        | 10  | False | No output |
 ```
-#### For loops
+
+#### `for` Loops
+
 For loops are similar to while loops however they work with ranges. These ranges can be different things, you can have ranges between numbers but similarly you can have ranges on strings. We will replicate the numbers between 1 and 10 with a for loop.
+
 ```py
 for i in range(0,10):
 	print(i)
 ```
+
 As you can see this is much more efficient, you do not need to increment the variable manually or even initialise it, the for loop does this itself. As stated above you can also do this on strings so i will show this below too:
+
 ```py
 my_str = "hello world"
 for i in my_str:
 	print(i)
-"""
-Output:
-h
-e
-l
-l
-o
-
-w
-o
-r
-l
-d
-"""
+>>> h
+>>> e
+>>> l
+>>> l
+>>> o
+>>>
+>>> w
+>>> o
+>>> r
+>>> l
+>>> d
 ```
-As you can see it goes over each character individually, in an iterative process. 
 
-#### If / else/ elif statements
+As you can see it goes over each character individually, in an iterative process.
+
+#### `if` / `else`/ `elif` Statements
+
 If statements are a fundamental concept in the majority of programming languages and python is no different, this is used to check if a given condition is true. If it is then it will execute the code it is supplied if not it will go to through elif until one is true (if supplied) if none are true then it will go to the else statement. An example of this will be:
+
 ```py
 age = int(input("Enter your age"))
 if age < 18:
@@ -255,14 +266,13 @@ elif age > 18:
 else:
 	print('Please provide ID, 18 year olds must be checked')
 
-"""
 >>> Enter your age
->18
-Please provide ID, 18 year olds must be checked
+> 18
+>>> Please provide ID, 18 year olds must be checked
 >>> Enter your age
->16
-You cannot enter the club
->>>Enter your age 
->38
-Welcome to the club
-""" 
+> 16
+>>> You cannot enter the club
+>>> Enter your age
+> 38
+>>> Welcome to the club
+```
